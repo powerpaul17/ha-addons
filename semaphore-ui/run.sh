@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bashio
+#!/usr/bin/with-contenv sh
 
 set -e
 echoerr() { printf "%s\n" "$*" >&2; }
