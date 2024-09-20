@@ -11,3 +11,4 @@ environment:
   SEMAPHORE_DB_DIALECT: bolt
 ingress: true
 ingress_port: 3000
+panel_icon: mdi:dots-vertical-circle
