@@ -1,0 +1,11 @@
+name: Semaphore-UI
+description: Home-Assistant Addon for Semaphore-UI
+version: '0.0.1'
+slug: semaphore_ui
+init: false
+arch:
+  - aarch64
+  - amd64
+  - i386
+ports:
+  3000/tcp: 3000
