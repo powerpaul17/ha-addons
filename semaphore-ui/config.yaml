@@ -7,8 +7,6 @@ arch:
   - aarch64
   - amd64
   - i386
-ports:
-  3000/tcp: 3000
 environment:
   SEMAPHORE_DB_DIALECT: bolt
 ingress: true
