@@ -11,3 +11,5 @@ ports:
   3000/tcp: 3000
 environment:
   SEMAPHORE_DB_DIALECT: bolt
+ingress: true
+ingress_port: 3000
