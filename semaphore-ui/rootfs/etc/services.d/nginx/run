@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bashio
+
+bashio::net.wait_for 3000 localhost 900
+
+bashio::log.info "Starting Nginx for semaphore-ui..."
+
+exec nginx
