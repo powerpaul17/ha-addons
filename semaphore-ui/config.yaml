@@ -1,6 +1,6 @@
 name: Semaphore-UI
 description: Home-Assistant Addon for Semaphore-UI
-version: '0.0.1'
+version: '0.0.2'
 slug: semaphore_ui
 init: false
 arch:
