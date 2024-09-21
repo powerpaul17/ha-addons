@@ -8,6 +8,8 @@ arch:
   - amd64
   - i386
 environment:
+  SEMAPHORE_CONFIG_PATH: /data/config
+  SEMAPHORE_DB_PATH: /data/database
   SEMAPHORE_DB_DIALECT: bolt
 ingress: true
 panel_icon: mdi:dots-vertical-circle
