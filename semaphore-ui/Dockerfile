@@ -21,3 +21,5 @@ COPY rootfs /
 # Copy data for add-on
 COPY start_semaphore_ui.sh /
 RUN chmod a+x /start_semaphore_ui.sh
+
+CMD [ "start_semaphore_ui.sh" ]
