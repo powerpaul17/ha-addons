@@ -19,15 +19,10 @@ panel_icon: mdi:dots-vertical-circle
 options:
   email:
     enabled: false
-    sender: null
-    host: null
     port: 25
-    username: null
-    password: null
     secure: false
   slack:
     enabled: false
-    url: null
 
 schema:
   email:
