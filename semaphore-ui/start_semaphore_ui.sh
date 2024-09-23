@@ -3,59 +3,33 @@
 set -e
 echoerr() { printf "%s\n" "$*" >&2; }
 
-file_env() {
-    local var=""
-    local fileVar=""
-
-    eval var="\$${1}"
-    eval fileVar="\$${1}_FILE"
-
-    local def="${2:-}"
-
-    if [ -n "${var:-}" ] && [ -n "${fileVar:-}" ]; then
-        echo >&2 "error: both ${1} and ${1}_FILE are set (but are exclusive)"
-        exit 1
-    fi
-
-    local val="$def"
-
-    if [ -n "${var:-}" ]; then
-        val="${var}"
-    elif [ -n "${fileVar:-}" ]; then
-        val="$(cat "${fileVar}")"
-    fi
-
-    if [ -n "${val:-}" ]; then
-        export "${1}"="$val"
-    fi
-
-    unset "${1}_FILE"
-}
-
 export SEMAPHORE_CONFIG_PATH="${SEMAPHORE_CONFIG_PATH:-/etc/semaphore}"
 export SEMAPHORE_TMP_PATH="${SEMAPHORE_TMP_PATH:-/tmp/semaphore}"
+
 export SEMAPHORE_DB_DIALECT="${SEMAPHORE_DB_DIALECT:-mysql}"
 export SEMAPHORE_DB_HOST="${SEMAPHORE_DB_HOST:-0.0.0.0}"
 export SEMAPHORE_DB_PATH="${SEMAPHORE_DB_PATH:-/var/lib/semaphore}"
 export SEMAPHORE_DB_PORT="${SEMAPHORE_DB_PORT:-}"
 export SEMAPHORE_DB="${SEMAPHORE_DB:-semaphore}"
+export SEMAPHORE_DB_USER="${SEMAPHORE_DB_USER:-semaphore}"
+export SEMAPHORE_DB_PASS="${SEMAPHORE_DB_PASS:-semaphore}"
 
-file_env 'SEMAPHORE_DB_USER' 'semaphore'
-file_env 'SEMAPHORE_DB_PASS' 'semaphore'
-file_env 'SEMAPHORE_ADMIN' 'admin'
+export SEMAPHORE_ADMIN="${SEMAPHORE_ADMIN:-admin}"
 export SEMAPHORE_ADMIN_EMAIL="${SEMAPHORE_ADMIN_EMAIL:-admin@localhost}"
 export SEMAPHORE_ADMIN_NAME="${SEMAPHORE_ADMIN_NAME:-Semaphore Admin}"
-file_env 'SEMAPHORE_ADMIN_PASSWORD' 'semaphorepassword'
+export SEMAPHORE_ADMIN_PASSWORD="${SEMAPHORE_ADMIN_PASSWORD:-semaphorepassword}"
+
 export SEMAPHORE_LDAP_ACTIVATED="${SEMAPHORE_LDAP_ACTIVATED:-no}"
 export SEMAPHORE_LDAP_HOST="${SEMAPHORE_LDAP_HOST:-}"
 export SEMAPHORE_LDAP_PORT="${SEMAPHORE_LDAP_PORT:-}"
 export SEMAPHORE_LDAP_DN_BIND="${SEMAPHORE_LDAP_DN_BIND:-}"
-file_env 'SEMAPHORE_LDAP_PASSWORD'
+export SEMAPHORE_LDAP_PASSWORD="${SEMAPHORE_LDAP_PASSWORD:-}"
 export SEMAPHORE_LDAP_DN_SEARCH="${SEMAPHORE_LDAP_DN_SEARCH:-}"
 export SEMAPHORE_LDAP_MAPPING_USERNAME="${SEMAPHORE_LDAP_MAPPING_USERNAME:-uid}"
 export SEMAPHORE_LDAP_MAPPING_FULLNAME="${SEMAPHORE_LDAP_MAPPING_FULLNAME:-cn}"
 export SEMAPHORE_LDAP_MAPPING_EMAIL="${SEMAPHORE_LDAP_MAPPING_EMAIL:-mail}"
-file_env 'SEMAPHORE_ACCESS_KEY_ENCRYPTION'
+
+export SEMAPHORE_ACCESS_KEY_ENCRYPTION="${SEMAPHORE_ACCESS_KEY_ENCRYPTION:-}"
 
 [ -d "${SEMAPHORE_TMP_PATH}" ] || mkdir -p "${SEMAPHORE_TMP_PATH}" || {
     echo "Can't create Semaphore tmp path ${SEMAPHORE_TMP_PATH}."
