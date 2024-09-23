@@ -21,7 +21,7 @@ COPY rootfs /
 
 ENV ANSIBLE_VERSION 9.4.0
 
-RUN pip3 install --upgrade pip ansible==${ANSIBLE_VERSION} boto3 botocore requests && \
+RUN pip3 install --upgrade pip ansible==${ANSIBLE_VERSION} boto3 botocore requests
 
 # Copy data for add-on
 COPY start_semaphore_ui.sh /
