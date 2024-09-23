@@ -185,8 +185,5 @@ else
 fi
 
 echoerr "Starting semaphore server"
-if test "$#" -ne 1; then
-    exec /usr/local/bin/semaphore server  --config "${SEMAPHORE_CONFIG_PATH}/config.json"
-else
-    exec "$@"
-fi
+
+exec /usr/local/bin/semaphore server  --config "${SEMAPHORE_CONFIG_PATH}/config.json"
