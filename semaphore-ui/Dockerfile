@@ -19,7 +19,7 @@ RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
 
 COPY rootfs /
 
-ENV ANSIBLE_VERSION 9.4.0
+ENV ANSIBLE_VERSION=9.4.0
 
 RUN pip3 install --upgrade pip ansible==${ANSIBLE_VERSION} boto3 botocore requests
 
