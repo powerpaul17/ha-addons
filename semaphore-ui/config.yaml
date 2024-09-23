@@ -19,19 +19,24 @@ panel_icon: mdi:dots-vertical-circle
 
 options:
   email_enabled: false
+  email_sender: ''
+  email_host: ''
   email_port: 25
+  email_username: ''
+  email_password: ''
   email_secure: false
 
   slack_enabled: false
+  slack_url: ''
 
 schema:
   email_enabled: bool
-  email_sender: email?
-  email_host: url?
+  email_sender: email
+  email_host: url
   email_port: port
-  email_username: str?
-  email_password: password?
+  email_username: str
+  email_password: password
   email_secure: bool
 
   slack_enabled: bool
-  slack_url: url?
+  slack_url: url
