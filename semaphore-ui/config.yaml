@@ -16,6 +16,7 @@ environment:
   ANSIBLE_HOST_KEY_CHECKING: 'false'
 ingress: true
 panel_icon: mdi:dots-vertical-circle
+hassio_api: true
 
 options:
   email_enabled: false
