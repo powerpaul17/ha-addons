@@ -13,6 +13,7 @@ environment:
   SEMAPHORE_CONFIG_PATH: /data/config
   SEMAPHORE_DB_PATH: /data/database
   SEMAPHORE_DB_DIALECT: bolt
+  ANSIBLE_HOST_KEY_CHECKING: false
 ingress: true
 panel_icon: mdi:dots-vertical-circle
 
