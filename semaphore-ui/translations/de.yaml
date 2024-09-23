@@ -1,0 +1,36 @@
+configuration:
+  email_enabled:
+    name: Aktiviere E-Mail Benachrichtigungen
+    description:
+
+  email_sender:
+    name: Absenderadresse
+    description:
+
+  email_host:
+    name: Mailserver-URL
+    description:
+
+  email_port:
+    name: Port des Mailservers
+    description:
+
+  email_username:
+    name: Benutzername des Mailserverkontos
+    description:
+
+  email_password:
+    name: Passwort des Mailserverkontos
+    description:
+
+  email_secure:
+    name:
+    description:
+
+  slack_enabled:
+    name: Aktiviere Slack (webhook) Benachrichtigungen
+    description:
+
+  slack_url:
+    name: Slack webhook URL
+    description:
