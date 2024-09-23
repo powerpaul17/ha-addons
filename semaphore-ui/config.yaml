@@ -1,6 +1,6 @@
 name: Semaphore-UI
 description: Home-Assistant Addon for Semaphore-UI
-version: '0.1.1'
+version: '0.1.2'
 slug: semaphore_ui
 image: ghcr.io/powerpaul17/image-{arch}-semaphore-ui
 init: false
