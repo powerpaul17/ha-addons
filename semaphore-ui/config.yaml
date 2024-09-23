@@ -15,3 +15,29 @@ environment:
   SEMAPHORE_DB_DIALECT: bolt
 ingress: true
 panel_icon: mdi:dots-vertical-circle
+
+options:
+  email:
+    enabled: false
+    sender: null
+    host: null
+    port: 25
+    username: null
+    password: null
+    secure: false
+  slack:
+    enabled: false
+    url: null
+
+schema:
+  email:
+    enabled: bool
+    sender: email?
+    host: url?
+    port: port
+    username: str?
+    password: password?
+    secure: bool
+  slack:
+    enabled: bool
+    url: url?
