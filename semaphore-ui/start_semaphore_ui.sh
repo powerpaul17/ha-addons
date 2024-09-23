@@ -157,16 +157,16 @@ fi
 
 # Set environment variables according to configuration
 
-SEMAPHORE_EMAIL_ALERT=$(bashio::config 'email.enabled')
-SEMAPHORE_EMAIL_SENDER=$(bashio::config 'email.sender')
-SEMAPHORE_EMAIL_HOST=$(bashio::config 'email.host')
-SEMAPHORE_EMAIL_PORT=$(bashio::config 'email.port')
-SEMAPHORE_EMAIL_USERNAME=$(bashio::config 'email.username')
-SEMAPHORE_EMAIL_PASSWORD=$(bashio::config 'email.password')
-SEMAPHORE_EMAIL_SECURE=$(bashio::config 'email.secure')
+SEMAPHORE_EMAIL_ALERT=$(bashio::config 'email_enabled')
+SEMAPHORE_EMAIL_SENDER=$(bashio::config 'email_sender')
+SEMAPHORE_EMAIL_HOST=$(bashio::config 'email_host')
+SEMAPHORE_EMAIL_PORT=$(bashio::config 'email_port')
+SEMAPHORE_EMAIL_USERNAME=$(bashio::config 'email_username')
+SEMAPHORE_EMAIL_PASSWORD=$(bashio::config 'email_password')
+SEMAPHORE_EMAIL_SECURE=$(bashio::config 'email_secure')
 
-SEMAPHORE_SLACK_ALERT=$(bashio::config 'slack:enabled')
-SEMAPHORE_SLACK_URL=$(bashio::config 'slack.url')
+SEMAPHORE_SLACK_ALERT=$(bashio::config 'slack_enabled')
+SEMAPHORE_SLACK_URL=$(bashio::config 'slack_url')
 
 if test -f "${SEMAPHORE_CONFIG_PATH}/packages.txt"; then
     echoerr "Installing additional system dependencies"
