@@ -4,6 +4,5 @@ This is a [Semaphore-UI](https://github.com/semaphoreui/semaphore) add-on for Ho
 
 ## Important Notes
 
-1. **Ingress**: After login a reload is required to get past the 404 error.
-2. Only **Ansible** is supported.
-3. Only **BoltDB** database is supported.
+1. Only **Ansible** is supported.
+2. Only **BoltDB** database is supported.
