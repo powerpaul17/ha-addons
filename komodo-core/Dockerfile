@@ -1,0 +1,45 @@
+ARG BUILD_FROM
+
+ARG KOMODO_CORE_IMAGE=ghcr.io/moghtech/komodo:84419d61-dev
+
+FROM ${KOMODO_CORE_IMAGE} AS komodo-core
+
+FROM ${BUILD_FROM}
+
+ARG BUILD_ARCH
+ARG FERRETDB_VERSION
+
+# Install needed packages
+
+RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
+    fi \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+      wget \
+      git \
+      unzip
+
+# FerretDB
+
+RUN wget --quiet -O /tmp/ferretdb.deb "https://github.com/FerretDB/FerretDB/releases/download/v${FERRETDB_VERSION}/ferretdb-linux-${BUILD_ARCH}.deb" \
+    && dpkg -i /tmp/ferretdb.deb
+
+# Deno
+
+RUN curl -fsSL https://deno.land/install.sh | sh
+
+# Copy files
+
+COPY rootfs /
+
+# Copy binaries
+
+COPY --from=komodo-core /config/config.toml /config/config.toml
+COPY --from=komodo-core /app/frontend /app/frontend
+COPY --from=komodo-core /usr/local/bin/core /usr/local/bin/core
+
+# Copy data for add-on
+COPY run.sh /
+RUN chmod a+x /run.sh
+
+CMD [ "/run.sh" ]
