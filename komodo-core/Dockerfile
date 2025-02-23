@@ -1,6 +1,6 @@
 ARG BUILD_FROM
 
-ARG KOMODO_CORE_IMAGE=ghcr.io/moghtech/komodo:84419d61-dev
+ARG KOMODO_CORE_IMAGE=ghcr.io/mbecker20/komodo
 
 FROM ${KOMODO_CORE_IMAGE} AS komodo-core
 
