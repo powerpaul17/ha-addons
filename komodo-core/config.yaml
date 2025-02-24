@@ -11,3 +11,5 @@ ports:
   9120/tcp: 9120
 schema:
   periphery_passkey: password?
+  disable_confirm_dialog: bool?
+  disable_user_registration: bool?
