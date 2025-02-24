@@ -11,9 +11,7 @@ ARG FERRETDB_VERSION
 
 # Install needed packages
 
-RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
-    fi \
-    && apt-get update \
+RUN apt-get update \
     && apt-get install -y --no-install-recommends \
       wget \
       git \
@@ -21,7 +19,9 @@ RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
 
 # FerretDB
 
-RUN wget --quiet -O /tmp/ferretdb.deb "https://github.com/FerretDB/FerretDB/releases/download/v${FERRETDB_VERSION}/ferretdb-linux-${BUILD_ARCH}.deb" \
+RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
+    fi \
+    && wget --quiet -O /tmp/ferretdb.deb "https://github.com/FerretDB/FerretDB/releases/download/v${FERRETDB_VERSION}/ferretdb-linux-${BUILD_ARCH}.deb" \
     && dpkg -i /tmp/ferretdb.deb
 
 # Deno
