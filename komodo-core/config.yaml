@@ -9,3 +9,5 @@ arch:
   - amd64
 ports:
   9120/tcp: 9120
+schema:
+  periphery_passkey: password?

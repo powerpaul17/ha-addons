@@ -5,6 +5,8 @@ echoerr() { printf "%s\n" "$*" >&2; }
 
 echoerr "Starting Komodo"
 
+export KOMODO_PASSKEY=$(bashio::config 'periphery_passkey')
+
 export KOMODO_LOCAL_AUTH=true
 
 exec /usr/local/bin/core
