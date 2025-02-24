@@ -1,0 +1,11 @@
+name: Komodo Periphery
+description: Home-Assistant Addon for Komodo Periphery
+version: '0.1.0'
+slug: komodo-periphery
+image: ghcr.io/powerpaul17/image-{arch}-komodo-periphery
+init: false
+arch:
+  - aarch64
+  - amd64
+ports:
+  8120/tcp: 8120
