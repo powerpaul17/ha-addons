@@ -1,6 +1,6 @@
 name: Komodo Periphery
 description: Home-Assistant Addon for Komodo Periphery
-version: '0.1.0'
+version: '0.1.1'
 slug: komodo-periphery
 image: ghcr.io/powerpaul17/image-{arch}-komodo-periphery
 init: false
