@@ -5,4 +5,6 @@ bashio::log.info "Starting FerretDB for Komodo Core..."
 export FERRETDB_HANDLER=sqlite
 export FERRETDB_SQLITE_URL=file:/data/
 
+export FERRETDB_TELEMETRY=disable
+
 exec ferretdb
