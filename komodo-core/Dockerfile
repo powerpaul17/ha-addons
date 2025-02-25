@@ -24,10 +24,6 @@ RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     && wget --quiet -O /tmp/ferretdb.deb "https://github.com/FerretDB/FerretDB/releases/download/v${FERRETDB_VERSION}/ferretdb-linux-${BUILD_ARCH}.deb" \
     && dpkg -i /tmp/ferretdb.deb
 
-# Deno
-
-RUN curl -fsSL https://deno.land/install.sh | sh
-
 # Copy files
 
 COPY rootfs /
@@ -37,6 +33,13 @@ COPY rootfs /
 COPY --from=komodo-core /config/config.toml /config/config.toml
 COPY --from=komodo-core /app/frontend /app/frontend
 COPY --from=komodo-core /usr/local/bin/core /usr/local/bin/core
+COPY --from=komodo-core /usr/local/bin/deno /usr/local/bin/deno
+
+# Set $DENO_DIR and preload external Deno deps
+ENV DENO_DIR=/action-cache/deno
+RUN mkdir /action-cache && \
+	cd /action-cache && \
+	deno install jsr:@std/yaml jsr:@std/toml
 
 # Copy data for add-on
 COPY run.sh /
