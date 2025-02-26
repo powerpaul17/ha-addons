@@ -1,0 +1,10 @@
+configuration:
+  periphery_passkey:
+    name: Periphery-Passkey
+    description:
+  disable_confirm_dialog:
+    name: Deaktiviere Bestätigungsdialog
+    description:
+  disable_user_registration:
+    name: Deaktiviere Benutzerregistrierung
+    description:
