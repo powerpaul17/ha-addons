@@ -15,7 +15,8 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
       wget \
       git \
-      unzip
+      unzip \
+      nginx
 
 # FerretDB
 
@@ -23,6 +24,10 @@ RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     fi \
     && wget --quiet -O /tmp/ferretdb.deb "https://github.com/FerretDB/FerretDB/releases/download/v${FERRETDB_VERSION}/ferretdb-linux-${BUILD_ARCH}.deb" \
     && dpkg -i /tmp/ferretdb.deb
+
+RUN rm -rf \
+      /tmp/* \
+      /etc/nginx
 
 # Copy files
 

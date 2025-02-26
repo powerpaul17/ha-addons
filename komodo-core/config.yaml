@@ -9,6 +9,7 @@ arch:
   - amd64
 ports:
   9120/tcp: 9120
+ingress: true
 schema:
   periphery_passkey: password?
   disable_confirm_dialog: bool?
