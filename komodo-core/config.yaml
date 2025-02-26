@@ -10,6 +10,7 @@ arch:
 ports:
   9120/tcp: 9120
 ingress: true
+panel_icon: mdi:server-outline
 schema:
   periphery_passkey: password?
   disable_confirm_dialog: bool?
