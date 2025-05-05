@@ -1,6 +1,6 @@
 name: Komodo Core
 description: Home-Assistant Addon for Komodo Core
-version: '0.6.0'
+version: '0.7.0'
 slug: komodo-core
 image: ghcr.io/powerpaul17/image-{arch}-komodo-core
 init: false
