@@ -7,7 +7,6 @@ FROM ${KOMODO_CORE_IMAGE} AS komodo-core
 FROM ${BUILD_FROM}
 
 ARG BUILD_ARCH
-ARG FERRETDB_VERSION
 
 # Install needed packages
 
@@ -22,8 +21,8 @@ RUN apt-get update \
 
 RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     fi \
-    && wget --quiet -O /tmp/ferretdb.deb "https://github.com/FerretDB/FerretDB/releases/download/v${FERRETDB_VERSION}/ferretdb-linux-${BUILD_ARCH}.deb" \
-    && dpkg -i /tmp/ferretdb.deb
+    && wget --quiet -O /tmp/mongodb.deb "https://repo.mongodb.org/apt/debian/dists/bookworm/mongodb-org/8.0/main/binary-${BUILD_ARCH}/mongodb-org-server_8.0.9_${BUILD_ARCH}.deb" \
+    && dpkg -i /tmp/mongodb.deb
 
 RUN rm -rf \
       /tmp/* \
