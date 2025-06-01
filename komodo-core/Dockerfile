@@ -21,7 +21,7 @@ RUN apt-get update \
 
 RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     fi \
-    && wget --quiet -O /tmp/mongodb.deb "https://repo.mongodb.org/apt/debian/dists/bookworm/mongodb-org/8.0/main/binary-${BUILD_ARCH}/mongodb-org-server_8.0.9_${BUILD_ARCH}.deb" \
+    && wget --quiet -O /tmp/mongodb.deb "https://repo.mongodb.org/apt/ubuntu/dists/noble/mongodb-org/8.0/multiverse/binary-${BUILD_ARCH}/mongodb-org-server_8.0.9_${BUILD_ARCH}.deb" \
     && dpkg -i /tmp/mongodb.deb
 
 RUN rm -rf \
