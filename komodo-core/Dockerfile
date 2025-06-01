@@ -49,4 +49,6 @@ RUN mkdir /action-cache && \
 COPY run.sh /
 RUN chmod a+x /run.sh
 
+RUN mkdir -p /data/db
+
 CMD [ "/run.sh" ]
