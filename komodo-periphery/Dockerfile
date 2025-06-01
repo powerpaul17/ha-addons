@@ -1,6 +1,6 @@
 ARG BUILD_FROM
 
-ARG KOMODO_PERIPHERY_IMAGE=ghcr.io/mbecker20/periphery
+ARG KOMODO_PERIPHERY_IMAGE=ghcr.io/moghtech/komodo-periphery
 
 FROM ${KOMODO_PERIPHERY_IMAGE} AS komodo-periphery
 
