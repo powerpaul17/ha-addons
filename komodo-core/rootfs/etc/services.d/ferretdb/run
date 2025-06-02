@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bashio
+
+bashio::log.info "Starting FerretDB for Komodo Core..."
+
+export FERRETDB_TELEMETRY=disable
+
+exec ferretdb

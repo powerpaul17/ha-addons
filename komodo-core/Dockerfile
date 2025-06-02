@@ -6,8 +6,6 @@ FROM ${KOMODO_CORE_IMAGE} AS komodo-core
 
 FROM ${BUILD_FROM}
 
-ARG BUILD_ARCH
-
 # Install needed packages
 
 RUN apt-get update \
@@ -15,14 +13,30 @@ RUN apt-get update \
       wget \
       git \
       unzip \
-      nginx
+      nginx \
+      postgresql-common
+
+RUN /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
+
+RUN apt-get install -y --no-install-recommends \
+      postgresql-15 \
+      postgresql-15-cron \
+      postgresql-15-pgvector \
+      postgresql-15-postgis-3 \
+      postgresql-15-rum
+
+ARG BUILD_ARCH
+ARG FERRETDB_VERSION
 
 # FerretDB
 
 RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     fi \
-    && wget --quiet -O /tmp/mongodb.deb "https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/4.4/multiverse/binary-${BUILD_ARCH}/mongodb-org-server_4.4.18_${BUILD_ARCH}.deb" \
-    && dpkg -i /tmp/mongodb.deb
+    && wget --quiet -O /tmp/ferretdb.deb "https://github.com/FerretDB/FerretDB/releases/download/v${FERRETDB_VERSION}/ferretdb-${BUILD_ARCH}-linux.deb" \
+    && wget --quiet -O /tmp/documentdb.deb "https://github.com/FerretDB/documentdb/releases/download/v0.103.0-ferretdb-${FERRETDB_VERSION}/deb12-postgresql-15-documentdb_0.103.0.ferretdb.${FERRETDB_VERSION}_${BUILD_ARCH}.deb"
+
+RUN dpkg -i /tmp/ferretdb.deb
+RUN dpkg -i /tmp/documentdb.deb
 
 RUN rm -rf \
       /tmp/* \

@@ -1,7 +1,0 @@
-#!/usr/bin/with-contenv bashio
-
-bashio::log.info "Starting MongoDB for Komodo Core..."
-
-exec mkdir -p /data/db
-
-exec mongod --dbpath /data/db
