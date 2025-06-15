@@ -3,3 +3,4 @@ build_from:
   amd64: ghcr.io/home-assistant/amd64-base-debian:bookworm
 args:
   FERRETDB_VERSION: 2.2.0
+  KOMODO_VERSION: 1.18.0
