@@ -11,4 +11,6 @@ mkdir -p $PGDATA
 chown postgres $PGDATA
 su postgres -c "/usr/lib/postgresql/15/bin/initdb --username=$POSTGRES_USER --pwfile=<(printf \"%s\n\" $POSTGRES_PASSWORD)"
 
+printf %b "shared_preload_libraries = 'pg_cron,pg_documentdb_core,pg_documentdb'\ncron.database_name = 'postgres'\ndocumentdb.enableCompact = true\ndocumentdb.enableLetAndCollationForQueryMatch = true\ndocumentdb.enableNowSystemVariable = true\ndocumentdb.enableSortbyIdPushDownToPrimaryKey = true\ndocumentdb.enableSchemaValidation = true\ndocumentdb.enableBypassDocumentValidation = true\ndocumentdb.enableUserCrud = true\ndocumentdb.maxUserLimit = 100\n" >> $PGDATA/postgresql.conf
+
 su postgres -c "/usr/lib/postgresql/15/bin/postgres"
