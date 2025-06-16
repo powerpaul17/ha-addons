@@ -4,4 +4,6 @@ bashio::log.info "Starting FerretDB for Komodo Core..."
 
 export FERRETDB_TELEMETRY=disable
 
+export FERRETDB_POSTGRESQL_URL=postgres://postgres:postgres@localhost:5432/postgres
+
 exec ferretdb --no-auth
