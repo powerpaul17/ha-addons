@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bashio
+
+bashio::log.info "Starting Postgres for Komodo Core..."
+
+export PGDATA=/data/postgres
+
+export POSTGRES_USER=postgres
+export POSTGRES_PASSWORD=postgres
+
+mkdir -p $PGDATA
+chown postgres $PGDATA
+su postgres -c "/usr/lib/postgresql/15/bin/initdb --username=$POSTGRES_USER --pwfile=<(printf \"%s\n\" $POSTGRES_PASSWORD)"
+
+su postgres -c "/usr/lib/postgresql/15/bin/postgres"
