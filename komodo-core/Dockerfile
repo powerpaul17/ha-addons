@@ -50,7 +50,6 @@ COPY rootfs /
 
 # Copy binaries
 
-COPY --from=komodo-core /config/config.toml /config/config.toml
 COPY --from=komodo-core /app/frontend /app/frontend
 COPY --from=komodo-core /usr/local/bin/core /usr/local/bin/core
 COPY --from=komodo-core /usr/local/bin/deno /usr/local/bin/deno
