@@ -14,7 +14,7 @@ export KOMODO_DISABLE_USER_REGISTRATION=$(bashio::config 'disable_user_registrat
 
 export KOMODO_LOCAL_AUTH=true
 
-export KOMODO_PRIVATE_KEY_FILE=/data/keys/core.key
+export KOMODO_PRIVATE_KEY=file:/data/keys/core.key
 
 export KOMODO_SYNC_DIRECTORY=/data/syncs
 export KOMODO_REPO_DIRECTORY=/data/repo-cache
